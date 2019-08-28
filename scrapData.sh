@@ -10,9 +10,6 @@ url="http://stats.espncricinfo.com/india/engine/records/batting/highest_career_b
 # Fetch the pagesource from the url
 curl $url -o pagesource.txt
 
-# Add the Headings for each Field
-echo "| Player Name #| Team Name #| Batting Average #|" > Records.txt
-
 # Fetch the data but yet not in order
 grep -Eo "[A-Z a-z]*</a></td>|[0-9\.]*</b></td>" pagesource.txt | grep -Eo "[A-Z a-z]*|[0-9\.]*" | paste -d" " - - - -  > data.txt
 
@@ -26,9 +23,9 @@ while IFS= read -r line; do
   avg=`echo $line | grep -Eo "[0-9.]+"`
   team="India"
 
-  echo "| $name #| $team #| $avg #|" >> Records.txt
+  echo "$name,$team ,$avg" >> Records.txt
 done < "data.txt"
 
-column -s "#" -t Records.txt > AddressBook.txt
+cat Records.txt > AddressBook.txt
 
 rm pagesource.txt Records.txt data.txt 
