@@ -34,7 +34,7 @@ S Ramesh ,India ,28.08
 D Mongia ,India ,27.95
 YK Pathan ,India ,27.00
 R Lamba ,India ,27.00
-RR Singh, India, 43.34
+RR Singh ,India ,25.95
 RV Uthappa ,India ,25.94
 SM Patil ,India ,24.51
 M Prabhakar ,India ,24.12
